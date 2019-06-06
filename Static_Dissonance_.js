@@ -19,6 +19,10 @@ function preload() {
 function setup() {
   //set window to match dimensions of television
   createCanvas (700, 500);
+  
+   //load television to fit entire processing window with colored bars on top of tv screen
+  image (television, 0, 0);
+  image (coloredbars, 67, 67, 450, 330);
 
   //load font, Courier New, size 25
   textFont("Courier New", 25);
