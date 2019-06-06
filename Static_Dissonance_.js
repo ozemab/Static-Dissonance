@@ -8,8 +8,8 @@ var t = "Time's up";
 var distortion = 1;
 
 //image variables for tv and screen 
-var television 
-var coloredbars
+var television; 
+var coloredbars;
 
 function preload() {
   //load image of television
