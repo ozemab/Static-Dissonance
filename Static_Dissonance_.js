@@ -7,6 +7,9 @@ var t = "Time's up";
 //variable allowing user to cycle between different types of distortions 
 var distortion = 1;
 
+//image variables for tv and screen 
+var television 
+var coloredbars
 
 function preload() {
   //load image of television
