@@ -1,7 +1,7 @@
 //create strings displaying different phrases for each distortion phase 
 var h = "Hello human";
 var w = "Welcome to The Underworld";
-var b = "Be careful";
+var b = "Be Careful";
 var t = "Time's up";
 
 //variable allowing user to cycle between different types of distortions 
@@ -40,8 +40,9 @@ function draw() {
     image (coloredbars, 67, 67, 450, 330);
     fill (0);
     
-   //first phrase is loaded without input from the user
-   text(h.substring(), width/3, height/2);
+   //phrases are loaded without input from the user
+   text(h, width/9, height/2);
+   text(w, width/9, height/1.8);
   }  
 
   if (distortion == 2) {
@@ -51,7 +52,7 @@ function draw() {
 
     //phrase appears on screen without input from the user
     fill (0);
-    text(w, width/9, height/2);
+    text(b, width/7, height/2);
 
     //adapted from Generative Design: P_4_1_2_01.pde
     //tv+screen are loaded into window and sections of the images are copied to slightly different positions (randomly selected)
@@ -70,34 +71,9 @@ function draw() {
   }
 
   if (distortion == 3) {
-    //phrase appears on screen without input from the user, fades in and out
-    smooth();
-    fill (0, 0, 0, 2);
-  
-    text(b, width/4, height/2);
-    //rectangles take on color of screen image depending on mouse position
-    noStroke();  
-    for (let i = 0; i < 4000; i++) {
-      let x = random (mouseX);
-      let y = random (mouseY); 
-      let c = color;
-      c = coloredbars.get(x, y);
-      fill (c);
-      rect (x, y, 20, 2);
-   
-      let xx = random (mouseX);
-      let yy = random (mouseY);
-      let w = color;
-      w = television.get(xx, yy);
-      fill (w);
-      rect (xx, yy, 20, 2);
-    }
-  }
-
-  if (distortion == 4) {
     //phrase appears on screen without input from the user, distorts with mouse movements
     fill (0);
-    text(t, width/4, height/2);
+    text(t, width/7, height/2);
 
     //adapted from Generative Design: P_4_1_2_01.pde
     //tv+screen are loaded into window and sections of the images are copied to randomly selected positions upon movement of the mouse (distortion)
@@ -119,10 +95,10 @@ function draw() {
 //pressing a key allows user to cycle between different types of distortions 
 function keyPressed() {
   distortion = distortion + 1;
-  if (distortion > 4) {
+  if (distortion > 3) {
     distortion = 1;
     //when distortion type reaches phase four image resets so that static from phase three does not carry over
-  } else if (distortion == 4) {
+  } else if (distortion == 3) {
     image (television, 0, 0);
     image (coloredbars, 67, 67, 450, 330);
   }
